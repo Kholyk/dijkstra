@@ -4,5 +4,8 @@ require_relative "dijkstra/version"
 
 module Dijkstra
   class Error < StandardError; end
-  # Your code goes here...
+  
+  autoload :Node, 'dijkstra/node'
+  autoload :Graph, 'dijkstra/graph'
+
 end
