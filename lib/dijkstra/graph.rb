@@ -30,9 +30,8 @@ module Dijkstra
       src_node.edge_to(dst_node.id, weight)
       reverse_weight = rev_weight.nil? ? weight : rev_weight
       dst_node.edge_to(src_node.id, reverse_weight)
-        
+
       self
     end
-
   end
 end
