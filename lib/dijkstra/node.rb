@@ -2,21 +2,23 @@
 
 module Dijkstra
   class Node
+    include AASM
+
     attr_reader :id, :neighbours
+
+    aasm do
+      state :unvisited, initial: true
+      state :visited
+
+      event :visit do
+        transitions from: :unvisited, to: :visited
+      end
+    end
 
     def initialize(id)
       @id = id
       @neighbours = []
-      @visited = false
       @current_weight = Float::INFINITY
-    end
-
-    def visited?
-      @visited
-    end
-
-    def visit!
-      @visited = true
     end
 
     def edge_exists?(dst_node_id)
